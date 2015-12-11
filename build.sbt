@@ -21,6 +21,8 @@ version := "0.1-SNAPSHOT"
 
 scalaVersion := "2.11.7"
 
+scalacOptions ++= Seq("-feature", "-unchecked", "-deprecation")
+
 resolvers ++= Seq(
   "bintray" at "http://jcenter.bintray.com",
   "spray repo" at "http://repo.spray.io"
