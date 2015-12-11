@@ -19,7 +19,7 @@ organization := "com.github.mkroli"
 
 version := "0.1-SNAPSHOT"
 
-scalaVersion := "2.11.1"
+scalaVersion := "2.11.7"
 
 resolvers ++= Seq(
   "bintray" at "http://jcenter.bintray.com",
@@ -27,11 +27,11 @@ resolvers ++= Seq(
 )
 
 libraryDependencies ++= Seq(
-  "ch.qos.logback" % "logback-classic" % "1.1.2",
-  "com.typesafe.akka" %% "akka-actor" % "2.3.2",
-  "com.github.mkroli" %% "dns4s-akka" % "0.3",
-  "io.spray" %% "spray-can" % "1.3.1-20140423",
-  "io.spray" %% "spray-routing" % "1.3.1-20140423"
+  "ch.qos.logback" % "logback-classic" % "1.1.3",
+  "com.typesafe.akka" %% "akka-actor" % "2.4.1",
+  "com.github.mkroli" %% "dns4s-akka" % "0.9",
+  "io.spray" %% "spray-can" % "1.3.3",
+  "io.spray" %% "spray-routing" % "1.3.3"
 )
 
 packSettings
@@ -41,3 +41,5 @@ packMain := Map("httpresolver" -> "com.github.mkroli.httpresolver.Boot")
 packJvmOpts := Map("httpresolver" -> Seq("-Dlogback.configurationFile=${PROG_HOME}/etc/logback.xml"))
 
 packGenerateWindowsBatFile := false
+
+packArchiveExcludes ++= Seq("Makefile", "VERSION")

@@ -50,7 +50,7 @@ trait DnsHandlerComponent {
 
     override def receive = {
       case DnsRequest(question) =>
-        (dnsActor ? Dns.DnsPacket(Query ~ Questions(question), new InetSocketAddress("8.8.8.8", 53))).collect {
+        (dnsActor ? Dns.DnsPacket(Query ~ Questions(QName(question)), new InetSocketAddress("8.8.8.8", 53))).collect {
           case Response(_) ~ Answers(FirstARecord(a)) => DnsResponse(a.address)
         }.pipeTo(sender)
     }
